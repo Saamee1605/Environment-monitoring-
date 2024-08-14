@@ -10,15 +10,15 @@
     <div class="container">
         <h1>Blynk Data Display</h1>
         <div class="data-container">
-            <div id="V1" class="data-item">PM 1.0: Loading...</div>
-            <div id="V2" class="data-item">PM 2.5: Loading...</div>
-            <div id="V3" class="data-item">PM 10: Loading...</div>
-            <div id="V4" class="data-item">CO2: Loading...</div>
-            <div id="V5" class="data-item">Ozone: Loading...</div>
-            <div id="V6" class="data-item">UV: Loading...</div>
-            <div id="V7" class="data-item">Temperature: Loading...</div>
-            <div id="V8" class="data-item">Humidity: Loading...</div>
-            <div id="V10" class="data-item">VOC: Loading...</div>
+            <div id="V1" class="data-item">V1: Loading...</div>
+            <div id="V2" class="data-item">V2: Loading...</div>
+            <div id="V3" class="data-item">V3: Loading...</div>
+            <div id="V4" class="data-item">V4: Loading...</div>
+            <div id="V5" class="data-item">V5: Loading...</div>
+            <div id="V6" class="data-item">V6: Loading...</div>
+            <div id="V7" class="data-item">V7: Loading...</div>
+            <div id="V8" class="data-item">V8: Loading...</div>
+            <div id="V10" class="data-item">V10: Loading...</div>
         </div>
     </div>
 
@@ -34,28 +34,13 @@
                 ));
                 
                 PINS.forEach((pin, index) => {
-                    document.getElementById(pin).innerText = `${getLabel(pin)}: ${responses[index]}`;
+                    document.getElementById(pin).innerText = `${pin}: ${responses[index]}`;
                 });
             } catch (error) {
                 console.error('Error fetching data:', error);
                 PINS.forEach(pin => {
-                    document.getElementById(pin).innerText = `${getLabel(pin)}: Error loading data`;
+                    document.getElementById(pin).innerText = `${pin}: Error loading data`;
                 });
-            }
-        }
-
-        function getLabel(pin) {
-            switch (pin) {
-                case 'V1': return 'PM 1.0';
-                case 'V2': return 'PM 2.5';
-                case 'V3': return 'PM 10';
-                case 'V4': return 'CO2';
-                case 'V5': return 'Ozone';
-                case 'V6': return 'UV';
-                case 'V7': return 'Temperature';
-                case 'V8': return 'Humidity';
-                case 'V10': return 'VOC';
-                default: return 'Unknown';
             }
         }
 
